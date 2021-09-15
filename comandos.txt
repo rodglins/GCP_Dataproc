@@ -1,0 +1,50 @@
+
+Criando um Ecossistema Hadoop Totalmente Gerenciado com Google Cloud Dataproc
+
+
+
+ gcloud dataproc jobs submit spark \
+> --cluster==cluster-dataproc-rodglins \
+> --region="us-central1" \
+> --class=org.apache.spark.examples.SparkPi \
+> --jars=file:///usr/lib/spark/examples/jars/spark-examples.jar
+> -- 1000
+
+
+gcloud dataproc jobs submit spark --cluster=cluster-dataproc-rodglins --region=us-central1 --class=org.apache.spark.examples.SparkPi --jars=file:///usr/lib/spark/examples/jars/spark-examples.jar -- 1000
+
+https://cloud.google.com/sdk/gcloud/reference/dataproc/jobs/submit/spark
+
+
+https://cloud.google.com/dataproc/docs/quickstarts/quickstart-console
+
+gsutil cp contador.py livro.txt gs://dataprocrodglins
+
+gcloud dataproc jobs submit pyspark --cluster=cluster-dataproc-rodglins --region=us-central1 contador2.py -- --custom-flag
+
+gs://dataprocrodglins/contador.py
+gs://dataprocrodglins/contador2.py
+
+
+
+
+Em REST:
+
+POST /v1/projects/dataprocrodglins/regions/us-central1/jobs:submit/
+{
+  "projectId": "dataprocrodglins",
+  "job": {
+    "placement": {
+      "clusterName": "cluster-dataproc-rodglins"
+    },
+    "statusHistory": [],
+    "reference": {
+      "jobId": "job-be9c2667",
+      "projectId": "dataprocrodglins"
+    },
+    "pysparkJob": {
+      "mainPythonFileUri": "gs://dataprocrodglins/contador.py",
+      "properties": {}
+    }
+  }
+}
