@@ -2,8 +2,14 @@
 
 
 
-*Resolvido em: 15/09/2021
-*Bootcamp Carrefour Data Engineer
+
+
+**Bootcamp Carrefour Data Engineer**
+
+* Criando um Ecossistema Hadoop Totalmente Gerenciado com Google Cloud
+* Resolvido em: 15/09/2021
+
+
 
 
 
